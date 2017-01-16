@@ -159,7 +159,7 @@ hr.small {
 .header img {
     width: 298px;
     max-width: 100%;
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
 }
 
 .header h3 {
@@ -167,7 +167,7 @@ hr.small {
     text-shadow: 0 0 1px rgba(0,0,0,0.6);
 	font-size: 14px;
 	line-height: 1.6em;
-	margin-bottom: 40px;
+	/*margin-bottom: 40px;*/
 }
 
 
