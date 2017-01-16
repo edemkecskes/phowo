@@ -1,21 +1,13 @@
-/*!
- * Start Bootstrap - Stylish Portfolio (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
-
-/* Global Styles */
-
 html,
 body {
     width: 100%;
     height: 100%;
-	background: #020202;
-	color: #fff;
+    background: #020202;
+    color: #fff;
 }
 
 body {
-    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Roboto",sans-serif;
 }
 
 .text-vertical-center {
@@ -75,7 +67,7 @@ hr.small {
     height: 100%;
     transform: translateX(250px);
     overflow-y: auto;
-    background: #222;
+    background: #020202;
     -webkit-transition: all 0.4s ease 0s;
     -moz-transition: all 0.4s ease 0s;
     -ms-transition: all 0.4s ease 0s;
@@ -157,7 +149,7 @@ hr.small {
     position: relative;
     width: 100%;
     height: 100%;
-    background: #525558 url("http://phowo.hu/wp-content/uploads/2014/09/IMG_1692.jpg") no-repeat center center scroll;
+    background: #525558 url("http://localhost/phowo/img/bg.jpg") no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -165,9 +157,9 @@ hr.small {
 }
 
 .header img {
-	width: 566px;
+    width: 298px;
     max-width: 100%;
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .header h3 {
@@ -183,6 +175,7 @@ hr.small {
 
 .about {
     padding: 50px 0;
+    background-color: #232323;
 }
 
 /* Footer */
