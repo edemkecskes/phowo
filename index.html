@@ -61,7 +61,7 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <img src="../phowo/img/logo.png">
+            <img src="../phowo-master/img/logo.png">
             <h3>A világ az objektíven keresztül. Mert nálunk van hely mindenkinek.</h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Olvass még</a>
@@ -134,7 +134,7 @@
         $("#sidebar-wrapper").toggleClass("active");
     });
     // Scrolls to the selected menu item on the page
-    $(function() {
+    /*$(function() {
         $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
                 var target = $(this.hash);
@@ -147,9 +147,9 @@
                 }
             }
         });
-    });
+    });*/
     //#to-top button appears after scrolling
-    var fixed = false;
+    /*var fixed = false;
     $(document).scroll(function() {
         if ($(this).scrollTop() > 250) {
             if (!fixed) {
@@ -172,7 +172,25 @@
                 });
             }
         }
-    });
+    });*/
+	$(document).ready(function(){
+     $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#to-top').fadeIn();
+            } else {
+                $('#to-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#to-top').click(function () {
+            $('#to-top').tooltip('hide');
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+        $('#to-top').tooltip('show');
+	});
     </script>
 
 </body>

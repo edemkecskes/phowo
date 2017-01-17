@@ -27,7 +27,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
 </head>
 
 <body>
@@ -56,40 +57,38 @@
             </li>
         </ul>
     </nav>
-    <header id="page">
-        <img src="../phowo/img/logo.png">
-    </header>
-           <script src="js/masonry.min.js"></script>  
- <div class="container">
-    <h2>Masonry Grid</h2>
-	<div class="row grid">
-        <div class="col-xs-4 thumbnail">
-            <img src="http://shobase.de/api/thumb.php?p=2013/IMG_2.jpg" />
-        </div>    
-        <div class="col-xs-4 thumbnail">
-            <img src="http://shobase.de/api/thumb.php?p=2013/IMG.jpg" />
-        </div>    
-        <div class="col-xs-4 thumbnail">
-            <img src="http://shobase.de/api/thumb.php?p=2013/satc_collage/IMG_0030-basis.jpg" />
-        </div>    
-        <div class="col-xs-4 thumbnail">
-            <img src="http://shobase.de/api/thumb.php?p=2013/sommer13/_DSC9400.jpg" />
-        </div>    
-        <div class="col-xs-4 thumbnail">
-            <img src="http://shobase.de/api/thumb.php?p=2013/siehste/_DSC9307.jpg" />
-        </div>    
-        <div class="col-xs-4 thumbnail">
-            <img src="http://shobase.de/api/thumb.php?p=2013/kameraunterwegs/IMG_0011.jpg" />
-        </div>    
-        <div class="col-xs-4 thumbnail">
-            <img src="http://shobase.de/api/thumb.php?p=2013/Untitled-1.jpg" />
-        </div>    
-        <div class="col-xs-4 thumbnail">
-            <img src="http://shobase.de/api/thumb.php?p=blog2012/sacity/speedhaus.jpg" />
-        </div>    
-	</div>
-</div>
-        <!-- Footer -->
+	<!-- Content -->
+	<div class="grid">
+	  <div class="grid-sizer"></div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
+	  </div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
+	  </div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" />
+	  </div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" />
+	  </div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" />
+	  </div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" />
+	  </div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" />
+	  </div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" />
+	  </div>
+	  <div class="grid-item">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
+	  </div>
+	</div>	
+    <!-- Footer -->
     <footer>
 
         <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
@@ -106,13 +105,19 @@
     <script>
     // external js: masonry.pkgd.js, imagesloaded.pkgd.js
 
-$(function(){
-    
-    var m = new Masonry($('.grid').get()[0], {
-        itemSelector: ".thumbnail"
-    });
+	// init Isotope
+	var grid = document.querySelector('.grid');
 
-});
+	var msnry = new Masonry( grid, {
+	  itemSelector: '.grid-item',
+	  columnWidth: '.grid-sizer',
+	  percentPosition: true
+	});
+
+	imagesLoaded( grid ).on( 'progress', function() {
+	  // layout Masonry after each image loads
+	  msnry.layout();
+	});
 
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {
@@ -140,7 +145,7 @@ $(function(){
         });
     });
     //#to-top button appears after scrolling
-    var fixed = false;
+    /*var fixed = false;
     $(document).scroll(function() {
         if ($(this).scrollTop() > 250) {
             if (!fixed) {
@@ -163,7 +168,25 @@ $(function(){
                 });
             }
         }
-    });
+    });*/
+		$(document).ready(function(){
+     $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#to-top').fadeIn();
+            } else {
+                $('#to-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#to-top').click(function () {
+            $('#to-top').tooltip('hide');
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+        $('#to-top').tooltip('show');
+	});
     </script>
 
 </body>
