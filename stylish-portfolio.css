@@ -158,7 +158,19 @@ hr.small {
     background-size: cover;
     -o-background-size: cover;
 }
-
+#page {
+	/*background-color: #525558;*/
+	width: 100%;
+	z-index: 1;
+    position: fixed;
+	top: 0;
+	margin-top: 5px;
+}
+#page img {
+	max-height: 40px;
+	display: block;
+    margin: auto auto;
+}
 .header img {
     width: 298px;
     max-width: 100%;
