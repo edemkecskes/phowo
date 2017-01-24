@@ -245,4 +245,13 @@ html { overflow-y: scroll; }
 	z-index: 1000;
     position: fixed;
     left: 0;
+	font-size: 12px;
+	text-transform: uppercase;
+	text-align: center;
+	border: 1px solid white;
+	padding: 5px 5px 5px 5px;
+	margin: 5px 5px 5px 5px;
+	background-color: rgba(0,0,0,0.4);
 }
+
+
