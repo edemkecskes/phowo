@@ -21,3 +21,14 @@ app.controller('getAllPictures', function($scope, $http) {
       $scope.myPictures = response.statusText;
   });
 });
+
+app.controller('getOnePicture', function($scope, $http) {
+  $http({
+    method : "GET",
+    url : "http://localhost/Phowo_new/api/picture/read_one.php"
+  }).then(function mySuccess(response) {
+      $scope.onePicture = response.data.records;
+    }, function myError(response) {
+      $scope.onePicture = response.statusText;
+  });
+});

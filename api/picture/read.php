@@ -35,7 +35,7 @@ if($num>0){
         extract($row);
  
         $picture_item=array(
-            "id" => $id.'.jpg',
+            "id" => $id,
             "title" => $title,
             "authorname" => $authorname,
             "webpage" => $webpage

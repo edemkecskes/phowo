@@ -7,7 +7,7 @@ generateHeader("Összes fotó");
         <div class="grid" data-masonry data-masonry-options='{ "columnWidth": 5 }' ng-controller="getAllPictures">
             <div class="grid-sizer"></div>
                 <div class="grid-item "data-masonry-item data-ng-repeat="picture in myPictures">
-                    <img ng-src="{{'http://localhost/Phowo_new/uploads/' + picture.id}}" alt="{{picture.name}}">
+                    <a href="view.php?id={{picture.id}}"><img ng-src="{{'http://localhost/Phowo_new/uploads/' + picture.id + '.jpg'}}"></a>
                 </div>
         </div>
 <?php
