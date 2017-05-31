@@ -7,11 +7,11 @@ class Picture {
  
     // object properties
     public $id;
-    public $pic_url;
-    public $thumb_url;
     public $title;
     public $catid;
     public $authid;
+    public $authorname;
+    public $webpage;
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -38,17 +38,6 @@ class Picture {
     
     function readOne(){ 
         // query to read single record
-        $query = "SELECT
-                    c.name as category_name, p.id, p.name, p.description, p.price, p.category_id, p.created
-                FROM
-                    " . $this->table_name . " p
-                    LEFT JOIN
-                        categories c
-                            ON p.category_id = c.id
-                WHERE
-                    p.id = ?
-                LIMIT
-                    0,1";
         $query = "SELECT pictures.id, pictures.title, categories.name, authors.name AS authorname, authors.webpage AS webpage FROM
         " . $this->table_name . "
         INNER JOIN categories ON pictures.catid = categories.id
@@ -58,7 +47,7 @@ class Picture {
         LIMIT 0,1";
 
         // prepare query statement
-        $stmt = $this->conn->prepare( $query );
+        $stmt = $this->conn->prepare($query);
 
         // bind id of product to be updated
         $stmt->bindParam(1, $this->id);
@@ -70,7 +59,6 @@ class Picture {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // set values to object properties
-        $this->id = $row['id'];
         $this->title = $row['title'];
         $this->name = $row['name'];
         $this->authorname = $row['authorname'];

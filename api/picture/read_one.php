@@ -7,7 +7,7 @@ header('Content-Type: application/json');
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/product.php';
+include_once '../objects/picture.php';
  
 // get database connection
 $database = new Database();
@@ -24,12 +24,13 @@ $picture->readOne();
  
 // create array
 $picture_arr = array(
-    "id" => $id,
-    "title" => $title,
-    "authorname" => $authorname,
-    "webpage" => $webpage
+    "id" => $picture->id,
+    "title" => $picture->title,
+    "name" => $picture->name,
+    "authorname" => $picture->authorname,
+    "webpage" => $picture->webpage
 );
- 
+
 // make it json format
 print_r(json_encode($picture_arr));
 ?>
